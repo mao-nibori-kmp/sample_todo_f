@@ -1,31 +1,32 @@
-<img src="" >
-<table>
-  <thead>
-    <tr>
-      <th>やること</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="main">
+    <img src="/assets/todoロゴ.png" >
+    <table>
+    <thead>
+        <tr>
+        <th>やること</th>
+        <th></th>
+        <th></th>
+        </tr>
+    </thead>
+    <tbody>
 
-    
-    <%= form_for(@task) do |f| %>
-      <div><%= f.label :title %></div>
-      <div><%= f.text_field :title %></div>
-      <div><%= f.label :limitDay %></div>
-      <div><%= f.text_field :limitDay %></div>
-      <div style="display:none"><%= f.text_field :status, value:0 %></div>
-      <div><%= f.submit %></div>
-    <% end %>
+        
+        <%= form_for(@task) do |f| %>
+        <div><%= f.label :title, value:"内容" %></div>
+        <div><%= f.text_field :title, :class=>"text" %></div>
+        <div><%= f.label :limitDay, value:"期限" %></div>
+        <div><%= f.text_field :limitDay, :class=>"text" %></div>
+        <div style="display:none"><%= f.text_field :status, value:0 %></div>
+        <div><%= f.submit :class=>"btn", :type=>"image", :src=>"/assets/登録ボタン.png" %></div>
+        <% end %>
 
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= task.limitDay %></td>
-        <td><%= link_to '編集', edit_task_path(task) %></td>
-        <td><%= link_to '削除', task_path(task), method: :delete %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <% @tasks.each do |task| %>
+        <tr>
+            <td><%= task.title %></td>
+            <td><%= task.limitDay %></td>
+            <td><%= link_to '削除', task_path(task), method: :delete %></td>
+        </tr>
+        <% end %>
+    </tbody>
+    </table>
+</div>
