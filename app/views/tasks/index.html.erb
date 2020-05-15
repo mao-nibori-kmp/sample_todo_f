@@ -1,20 +1,21 @@
-<h1>タスク一覧</h1>
+<img src="" >
 <table>
   <thead>
     <tr>
-      <th>タスク名</th>
+      <th>やること</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
 
-    <h1>タスク編集</h1>
+    
     <%= form_for(@task) do |f| %>
       <div><%= f.label :title %></div>
       <div><%= f.text_field :title %></div>
       <div><%= f.label :limitDay %></div>
       <div><%= f.text_field :limitDay %></div>
+      <div style="display:none"><%= f.text_field :status, value:0 %></div>
       <div><%= f.submit %></div>
     <% end %>
 
